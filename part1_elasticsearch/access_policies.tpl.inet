@@ -1,0 +1,44 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::${account}:role/hids_to_es"
+      },
+      "Action": "es:*",
+      "Resource": "arn:aws:es:${region}:${account}:domain/${domain_name}/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "0.0.0.0/0"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "es:*",
+      "Resource": "arn:aws:es:${region}:${account}:domain/${domain_name}/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "172.31.0.0/16"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "es:*",
+      "Resource": "arn:aws:es:${region}:${account}:domain/${domain_name}/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "110.139.195.242/32"
+        }
+      }
+    }
+  ]
+}

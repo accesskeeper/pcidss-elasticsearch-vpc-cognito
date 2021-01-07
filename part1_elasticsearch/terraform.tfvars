@@ -1,0 +1,6 @@
+profile        = "default"
+region         = "eu-west-1"
+es_domain_name = "es-company-name"
+es_version     = "7.8"
+user_name      = "test"
+user_password  = "Testtest1!"
